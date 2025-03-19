@@ -58,7 +58,8 @@ products.forEach((product) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart"
+          data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>
@@ -66,6 +67,54 @@ products.forEach((product) => {
    
 });
 
-console.log(productsHTML);
-
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+document.querySelectorAll('.js-add-to-cart')
+ .forEach((button) => {
+    button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+
+        let matchingItem;
+
+        cart.forEach((item) => {
+            if (productId === item.productId){
+                matchingItem = item
+            }
+        });
+
+        if (matchingItem){
+            matchingItem.quantity += 1;
+        }
+
+        else {
+            cart.push({
+                productId: productId,
+                quantity: 1
+            });
+        }
+
+        console.log(cart);
+    });
+ });
+
+//  How do we know which product to add?
+// Data Attribute 
+// - is just another HTML attribute
+// - allows us to attach any information to an element
+
+// Syntax for a Data Attribute
+// -is just an HTML attribute
+//    name                value
+// data-product-name="${product.name}"
+//- have to start with "data-"
+//- then give it any name
+
+
+//Steps 
+// - Check if the product is already in the cart.
+// - If it is in the cart, increase the quantity.
+// - If it is not in the cart, add it to the cart.
+
+//Sometimes two products have the same name:-
+// To fix this : - give each product an id
+//               - this id should be unique
