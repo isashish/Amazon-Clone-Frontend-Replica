@@ -93,7 +93,15 @@ document.querySelectorAll('.js-add-to-cart')
             });
         }
 
-        console.log(cart);
+
+        let CartQuantity = 0;
+
+        cart.forEach((item) => {
+            CartQuantity += item.quantity;
+        });
+
+        document.querySelector('.js-cart-quantity')
+            .innerHTML = CartQuantity;
     });
  });
 
@@ -118,3 +126,8 @@ document.querySelectorAll('.js-add-to-cart')
 //Sometimes two products have the same name:-
 // To fix this : - give each product an id
 //               - this id should be unique
+
+
+//Steps -
+//       1. Calculate the quantity.
+//       2. Put the quantity on the page.
