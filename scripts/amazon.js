@@ -1,3 +1,16 @@
+// In this lesson:
+// 1. Started the final Amazon project
+// 2. Set up and learned Git
+// 3. Learned the main idea of JavaScript
+//    1. Save the data
+//    2. Generate the HTML
+//    3. Make it interactive
+// 4. Created list of products
+// 5. Made the "Add to Cart" button interactive
+// 6. Made the cart quantity interactive
+
+
+
 // Main Idea of Java Script
 //1. Save the data
 //   data = information (information about our products)
@@ -7,6 +20,11 @@
 
 //The Benefit of Generating the HTML 
 // 1. If we want to add the product in web we don't need to copy the code again and again
+
+import {cart} from '../data/cart.js';
+
+// 1. Put all imports at the top of the file.
+// 2. We need to use Live Server
 
 
 let productsHTML = '';
@@ -112,7 +130,8 @@ document.querySelectorAll('.js-add-to-cart')
 
 // Syntax for a Data Attribute
 // -is just an HTML attribute
-//    name                value
+// attribute- name    attribute-value
+
 // data-product-name="${product.name}"
 //- have to start with "data-"
 //- then give it any name

@@ -61,8 +61,26 @@
       </div>
     </div>
 
-    <script src="data/cart.js"></script>
+    <!-- Combine all the files together into 1 big file. -->
+    <!-- Run all the code. -->
+    <!-- This can cause naming conflicts so we should create a Module -->
+    
+    <!-- 1. Create a file -->
+    <!-- 2. Don't load the file with <script> -->
+    <!-- Any variables we create inside the file, will be contained inside the file. -->
+
+   
     <script src="data/products.js"></script>
-    <script src="scripts/amazon.js"></script>
+    <script type="Module" src="scripts/amazon.js"></script> 
+    <!-- type="module" attribute -->
+    <!-- Let's this file get variables out of other files. -->
+     <!-- Get a Variable out of a File -->
+    <!-- 1. Add type='module' attribute -->
+    <!-- 2. EXport the varible -->
+    <!-- 3. Import the varible -->
+
+    <!-- Benefits of Modules -->
+    <!-- Helps us avoid naming conflicts -->
+    <!-- Don't have to worry about order of files -->
   </body>
 </html>
