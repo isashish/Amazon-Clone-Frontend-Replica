@@ -10,7 +10,6 @@
 // 6. Made the cart quantity interactive
 
 
-
 // Main Idea of Java Script
 //1. Save the data
 //   data = information (information about our products)
@@ -21,7 +20,7 @@
 //The Benefit of Generating the HTML 
 // 1. If we want to add the product in web we don't need to copy the code again and again
 
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 
 // 1. Put all imports at the top of the file.
@@ -29,7 +28,6 @@ import {products} from '../data/products.js';
 
 
 let productsHTML = '';
-
 
 products.forEach((product) => {
     productsHTML += `
@@ -83,44 +81,29 @@ products.forEach((product) => {
           </button>
         </div>
     `;
-   
 });
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+
+function updateCartQuantity(){
+   let CartQuantity = 0;
+
+  cart.forEach((CartItem) => {
+    CartQuantity += CartItem.quantity;
+  });
+
+  document.querySelector('.js-cart-quantity')
+  .innerHTML = CartQuantity;
+}
 
 document.querySelectorAll('.js-add-to-cart')
  .forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
+        addToCart(productId);
 
-        let matchingItem;
-
-        cart.forEach((item) => {
-            if (productId === item.productId){
-                matchingItem = item
-            }
-        });
-
-        if (matchingItem){
-            matchingItem.quantity += 1;
-        }
-
-        else {
-            cart.push({
-                productId: productId,
-                quantity: 1
-            });
-        }
-
-
-        let CartQuantity = 0;
-
-        cart.forEach((item) => {
-            CartQuantity += item.quantity;
-        });
-
-        document.querySelector('.js-cart-quantity')
-            .innerHTML = CartQuantity;
+        updateCartQuantity(); 
     });
  });
 
