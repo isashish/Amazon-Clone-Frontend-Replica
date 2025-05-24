@@ -22,6 +22,7 @@
 // 1. If we want to add the product in web we don't need to copy the code again and again
 
 import {cart} from '../data/cart.js';
+import {products} from '../data/products.js';
 
 // 1. Put all imports at the top of the file.
 // 2. We need to use Live Server
